@@ -1,72 +1,75 @@
-# Financial & Application Risk Analysis Dashboard
+# Loan Application Analysis Dashboard (Power BI)
 
-An interactive **Power BI Dashboard** designed to analyze application data, evaluate financial risk profiles, and monitor key performance indicators (KPIs) for applicant decision-making.
+An interactive Power BI dashboard designed to monitor, track, and analyze loan applications. This project provides end-to-end insights into application volumes, risk distributions, financial metrics, and approval behaviors to support data-driven decision-making in financial processing.
 
 ---
 
 ## 📊 Dashboard Overview
 
-This Power BI project provides a comprehensive overview of applicant profiles, underwriting metrics, and risk classifications. It allows stakeholders to slice data by approval status, risk levels, and rejection remarks to identify core demographic and financial trends.
+The complete dashboard synthesizes high-level KPIs with detailed risk breakdown distributions and trend charts. This unified view helps credit analysts and stakeholders quickly evaluate loan portfolio health.
+
+### Main Dashboard Page
+![Dashboard Main Page](path/to/your/Dashboard.png)
 
 ---
 
-## 📈 Key Visuals & Pages
+## 🛠️ Individual View Breakdowns
 
-The repository contains documentation and assets for the following dashboard components, as seen across the report tabs:
+The workbook is systematically organized into focused reporting pages. Below are the individual components and visual layers included in this project:
 
-### 1. Dashboard (Main Overview)
-The primary landing page combining high-level metrics with distribution charts to give an immediate health check of the application pipeline.
-![Dashboard Overview](path/to/your/Dashboard_Screenshot.png)
+### 1. KPI Cards
+* **Purpose:** Summarizes core operational operational metrics at a glance.
+* **Metrics Displayed:** Total Applications, Total Loan Amount ($2M), Average Annual Income ($94.38K), Average Credit Score (681.63), and overall Approval Rate % (30.00%).
+* **Visual:**
+    ![KPI Cards View](path/to/your/KPI_Cards.png)
 
-### 2. KPI Cards
-A dedicated view of high-level aggregated metrics including total applications, financial sums, and average credit scoring.
-* **Metrics Tracked:** Total Applications, Sum of Annual Income, Average Credit Score, etc.
-![KPI Cards](path/to/your/KPI_Cards_Screenshot.png)
+### 2. Donut Chart (Risk Classification)
+* **Purpose:** Breaks down total applications by their assigned risk profile tier.
+* **Metrics Displayed:** Distribution count and percentages across High Risk, Low Risk, and Medium Risk applications.
+* **Visual:**
+    ![Donut Chart View](path/to/your/Donut_Chart.png)
 
-### 3. Donut Chart
-Displays the proportional breakdown of application counts categorized by the system's initial action.
-* **Focus:** `Count of Application_ID by System_Initial_Action` (Auto-Reject, Auto-Approve, Manual Review).
-![Donut Chart](path/to/your/Donut_Chart_Screenshot.png)
+### 3. Clustered Bar Chart
+* **Purpose:** Compares the aggregate financial volumes requested against their processing decisions.
+* **Metrics Displayed:** Sum of Loan Amount Requested split by Approved, Rejected, and Review statuses.
+* **Visual:**
+    ![Clustered Bar Chart View](path/to/your/Clustered_Bar_Chart.png)
 
-### 4. Clustered Bar Chart
-A horizontal bar chart ranking credit metrics against individual application identifiers.
-* **Focus:** `Sum of Credit_Score by Application_ID`.
-![Clustered Bar Chart](path/to/your/Clustered_Bar_Chart_Screenshot.png)
+### 4. Scatter Chart
+* **Purpose:** Correlates the applicant's creditworthiness against the volume of financing requested.
+* **Metrics Displayed:** Relationship between the Sum of Credit Score and Sum of Loan Amount Requested, color-coded by final decision status.
+* **Visual:**
+    ![Scatter Chart View](path/to/your/Scatter_Chart.png)
 
-### 5. Scatter Chart
-Maps the correlation between an applicant's annual income and the specific loan amount they requested.
-* **Focus:** `Sum of Annual_Income_USD` vs. `Sum of Loan_Amount_Requested`.
-![Scatter Chart](path/to/your/Scatter_Chart_Screenshot.png)
+### 5. Waterfall Chart
+* **Purpose:** Illustrates the cumulative build-up of total loan values across separate underwriting channels.
+* **Metrics Displayed:** Sequential distribution step-up from Approved, Rejected, to Under Review categories to sum the overall portfolio pipeline.
+* **Visual:**
+    ![Waterfall Chart View](path/to/your/Waterfall_Chart.png)
 
-### 6. Table
-A detailed tabular breakdown mapping specific applicant names directly to their declared annual income for granular auditing.
-* **Focus:** `Applicant_Name` and `Sum of Annual_Income_USD`.
-![Table](path/to/your/Table_Screenshot.png)
+### 6. Granular Data Table
+* **Purpose:** Provides a deep-dive tabular view for operational lookups and historical auditing.
+* **Fields Included:** Application ID, Applicant Name, Annual Income, Credit Score, Risk Level, Status Decision, and processing Remarks.
+* **Visual:**
+    ![Table View](path/to/your/Table.png)
 
-### 7. Line Chart
-A dual-axis line chart illustrating the relationship and variance trends between loan amounts requested and credit scores over income intervals.
-* **Focus:** `Sum of Loan_Amount_Requested` and `Sum of Credit_Score by Annual_Income_USD`.
-![Line Chart](path/to/your/Line_Chart_Screenshot.png)
-
-### 8. Slicers
-Interactive UI components allowing users to dynamically filter the entire report canvas.
-* **Filters Included:** Status (e.g., Rejected), Risk Level (e.g., High Risk), and Remarks (e.g., Low Credit Score, Low Income).
-![Slicers](path/to/your/Slicers_Screenshot.png)
-
----
-
-## 🛠️ Tools & Technologies Used
-
-* **Power BI Desktop:** For data modeling, DAX calculations, and report visualization.
-* **Power Query:** For data cleaning, transformation, and column profiling.
-* **DAX (Data Analysis Expressions):** Used to build explicit measures for averages and financial aggregates.
+### 7. Interactive Slicers
+* **Purpose:** Enables cross-filtering across pages to segment the entire data canvas by specific categories.
+* **Filter Controls:** Application Processing Status (Approved/Rejected/Under Review), Risk Level Tiers, and operational Underwriting Remarks.
+* **Visual:**
+    ![Slicers View](path/to/your/Slicers.png)
 
 ---
 
-## 🚀 How to Use the Report
+## 💡 Key Insights Generated
+
+* **Approval Performance:** The portfolio currently registers a strict 30% approval rate, representing roughly $1M of the total $2M requested volume.
+* **Risk Profile Risk Concentration:** High-risk applications make up the largest individual share of incoming volume (57.5%), highlighting the critical need for robust automated slicer filtering.
+* **Credit Correlation:** The scatter evaluation clearly flags a grouping where lower credit scores are reliably funneled into "Review" or "Rejected" status buckets.
+
+## 🚀 How to Use the Power BI File (.pbix)
 
 1. Clone this repository to your local machine.
-2. Ensure you have the latest version of **Power BI Desktop** installed.
-3. Open the `.pbix` file located in the root folder.
-4. Use the bottom navigation tabs to switch between specific deep-dive views (**KPI Cards**, **Donut Chart**, etc.).
-5. Use the **Slicers panel** on the right side of the main dashboard canvas to interactively filter data by Risk Level or Status.
+2. Ensure you have **Power BI Desktop** installed.
+3. Open the `.pbix` file.
+4. Replace the sample underlying data source connection with your live database or clean Excel sheet if required.
